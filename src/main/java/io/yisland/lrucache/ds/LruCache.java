@@ -1,6 +1,7 @@
 package io.yisland.lrucache.ds;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,9 +48,9 @@ public class LruCache<K, V> implements Cache<K, V> {
   @Override
   public String toString() {
     Node it = head;
-    List<V> values = new ArrayList<>();
+    List<Node> values = new ArrayList<>();
     while (it != null) {
-      if (it.v != null) values.add(it.v);
+      if (it.v != null) values.add(it);
       it = it.next;
     }
     return values.stream().map(Object::toString).collect(joining(","));
@@ -79,8 +80,8 @@ public class LruCache<K, V> implements Cache<K, V> {
   private class Node {
     private final K k;
     private final V v;
-    private Node prev = null;
-    private Node next = null;
+    @ToString.Exclude private Node prev = null;
+    @ToString.Exclude private Node next = null;
   }
 
   private Node head = new Node(null, null);

@@ -60,7 +60,7 @@ public class LruCacheTest {
     cache.put(2, 200);
     cache.put(3, 300);
 
-    assertEquals(cache.toString(), "300,200");
+    assertEquals(cache.toString(), "LruCache.Node(k=3, v=300),LruCache.Node(k=2, v=200)");
   }
 
 }
