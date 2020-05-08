@@ -1,14 +1,13 @@
 package io.yisland.lrucache;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import io.yisland.lrucache.ds.Cache;
-import io.yisland.lrucache.ds.LruCache;
-import io.yisland.lrucache.util.Util;
+import io.yisland.lrucache.datastructure.Cache;
+import io.yisland.lrucache.datastructure.LruCache;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LruCacheTest {
 
@@ -44,12 +43,12 @@ public class LruCacheTest {
 
     cache.put(1, 100);
     cache.put(2, 200);
-    assert(Util.exists(cache.get(1), 100));
-    assert(Util.exists(cache.get(2), 200));
+    assert(cache.get(1).equals(Optional.of(100)));
+    assert(cache.get(2).equals(Optional.of(200)));
 
     cache.put(3, 300);
-    assert(Util.exists(cache.get(3), 300));
-    assert(Util.exists(cache.get(2), 200));
+    assert(cache.get(3).equals(Optional.of(300)));
+    assert(cache.get(2).equals(Optional.of(200)));
     assert(!cache.get(1).isPresent());
   }
 

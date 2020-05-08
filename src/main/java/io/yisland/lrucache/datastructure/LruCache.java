@@ -1,4 +1,4 @@
-package io.yisland.lrucache.ds;
+package io.yisland.lrucache.datastructure;
 
 import lombok.Data;
 import lombok.ToString;

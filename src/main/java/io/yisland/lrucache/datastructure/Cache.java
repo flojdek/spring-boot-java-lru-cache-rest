@@ -1,4 +1,4 @@
-package io.yisland.lrucache.ds;
+package io.yisland.lrucache.datastructure;
 
 import java.util.Optional;
 
